@@ -25,6 +25,7 @@ async function waitForSystems(page: Page, predicate: (paths: string[]) => boolea
   }).toPass({ timeout: timeoutMs })
 }
 
+test.describe.configure({ mode: 'serial' })
 test.describe('HMR', () => {
   let server: ViteDevServer
   let baseUrl: string
