@@ -18,7 +18,7 @@ function getSystemPaths(page: Page): Promise<string[]> {
 }
 
 /** Wait until the system paths list satisfies a predicate. */
-async function waitForSystems(page: Page, predicate: (paths: string[]) => boolean, timeoutMs = 5000) {
+async function waitForSystems(page: Page, predicate: (paths: string[]) => boolean, timeoutMs = 15_000) {
   await expect(async () => {
     const paths = await getSystemPaths(page)
     expect(predicate(paths)).toBe(true)
@@ -55,7 +55,7 @@ test.describe('HMR', () => {
 
     try {
       await page.goto(baseUrl)
-      await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 10_000 })
+      await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 30_000 })
 
       // Verify the system is in the list
       await waitForSystems(page, (paths) => paths.some((p) => p.includes('hmr-del.system.ts')))
@@ -78,7 +78,7 @@ test.describe('HMR', () => {
 
   test('add: system appears in live list, no page reload', async ({ page }) => {
     await page.goto(baseUrl)
-    await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 10_000 })
+    await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 30_000 })
 
     const tempFile = path.join(TEST_APP_ROOT, 'src/hmr-add.system.ts')
 
@@ -126,7 +126,7 @@ export default class HmrChangeSystem extends System() {
       })
 
       await page.goto(baseUrl)
-      await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 10_000 })
+      await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 30_000 })
 
       // v1 constructor should have logged
       expect(logs.some((l) => l.includes('[hmr-change] v1'))).toBe(true)

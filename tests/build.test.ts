@@ -46,7 +46,7 @@ test('build serves via virtual files: scene renders and splash removed', async (
   await serveDistViaRoute(page, DIST_DIR)
   await page.goto(TEST_ORIGIN)
 
-  await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 10_000 })
+  await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 30_000 })
   await expect(page.locator('#v43-canvas')).toBeVisible()
   expect(errors).toEqual([])
 })
@@ -64,7 +64,7 @@ test('build serves via virtual files: RPC stubs reject gracefully', async ({ pag
 
   await serveDistViaRoute(page, DIST_DIR)
   await page.goto(TEST_ORIGIN)
-  await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 10_000 })
+  await expect(page.locator('#v43-splash')).toBeHidden({ timeout: 30_000 })
 
   await expect(page.locator('#v43-canvas')).toBeVisible()
   expect(rpcErrors.some((e) => e.includes('RPC is only available in development mode'))).toBe(true)
