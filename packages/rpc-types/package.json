@@ -1,0 +1,46 @@
+{
+  "name": "@v43/rpc-types",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "V43 RPC type definitions — augmentable RpcFunctions interface",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts"
+      }
+    },
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "mkdir -p dist && cp src/index.d.ts dist/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "author": "Bela Bohlender",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbohlender/v43.git",
+    "directory": "packages/rpc-types"
+  },
+  "homepage": "https://github.com/bbohlender/v43#readme",
+  "bugs": {
+    "url": "https://github.com/bbohlender/v43/issues"
+  },
+  "keywords": [
+    "v43",
+    "vite",
+    "three",
+    "threejs",
+    "rpc-types"
+  ]
+}

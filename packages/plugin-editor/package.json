@@ -1,0 +1,62 @@
+{
+  "name": "@v43/plugin-editor",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "V43 editor plugin for Vite — in-browser editor with tweakpane, system templates, and scene inspector",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean && cp src/client.ts src/toolbar.ts src/panel.ts dist/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@tweakpane/core": "^2.0.5",
+    "@v43/plugin-ws": "workspace:*",
+    "@v43/core": "workspace:*",
+    "tweakpane": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@preact/signals-core": ">=1.0.0",
+    "elics": ">=3.0.0",
+    "three": ">=0.150.0",
+    "vite": "^5.0.0 || ^6.0.0"
+  },
+  "author": "Bela Bohlender",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbohlender/v43.git",
+    "directory": "packages/plugin-editor"
+  },
+  "homepage": "https://github.com/bbohlender/v43#readme",
+  "bugs": {
+    "url": "https://github.com/bbohlender/v43/issues"
+  },
+  "keywords": [
+    "v43",
+    "vite",
+    "three",
+    "threejs",
+    "vite-plugin",
+    "editor"
+  ]
+}

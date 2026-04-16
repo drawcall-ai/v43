@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "type": "module",
+  "author": "Bela Bohlender",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbohlender/v43.git"
+  },
+  "scripts": {
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r run typecheck",
+    "clean": "pnpm -r run clean",
+    "lint": "eslint packages/*/src/**/*.ts examples/*/src/**/*.ts",
+    "lint:fix": "eslint --fix packages/*/src/**/*.ts examples/*/src/**/*.ts",
+    "format": "prettier --write \"packages/*/src/**/*.ts\" \"examples/*/src/**/*.ts\" \"*.json\" \"*.md\"",
+    "format:check": "prettier --check \"packages/*/src/**/*.ts\" \"examples/*/src/**/*.ts\" \"*.json\" \"*.md\"",
+    "test": "playwright test"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.59.1",
+    "@preact/signals-core": "^1.14.1",
+    "@types/node": "^25.6.0",
+    "@types/three": "^0.183.1",
+    "elics": "^3.4.2",
+    "eslint": "^10.2.0",
+    "globals": "^17.5.0",
+    "prettier": "^3.8.3",
+    "three": "^0.183.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.58.2",
+    "vite": "^6.0.0"
+  }
+}

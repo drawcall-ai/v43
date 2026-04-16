@@ -1,0 +1,49 @@
+{
+  "name": "@v43/cli-client",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "V43 CLI client — send commands to a running V43 dev server from Node.js",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "author": "Bela Bohlender",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbohlender/v43.git",
+    "directory": "packages/cli-client"
+  },
+  "homepage": "https://github.com/bbohlender/v43#readme",
+  "bugs": {
+    "url": "https://github.com/bbohlender/v43/issues"
+  },
+  "keywords": [
+    "v43",
+    "vite",
+    "three",
+    "threejs",
+    "cli-client"
+  ]
+}

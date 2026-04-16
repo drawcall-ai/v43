@@ -1,0 +1,57 @@
+{
+  "name": "@v43/plugin-rpc",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "V43 RPC plugin for Vite — 'use server' directive transforms functions into WebSocket RPC calls",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean && cp src/runtime.ts dist/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@v43/plugin-ws": "workspace:*"
+  },
+  "peerDependencies": {
+    "vite": "^5.0.0 || ^6.0.0"
+  },
+  "author": "Bela Bohlender",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbohlender/v43.git",
+    "directory": "packages/rpc"
+  },
+  "homepage": "https://github.com/bbohlender/v43#readme",
+  "bugs": {
+    "url": "https://github.com/bbohlender/v43/issues"
+  },
+  "keywords": [
+    "v43",
+    "vite",
+    "three",
+    "threejs",
+    "vite-plugin",
+    "rpc",
+    "use-server"
+  ]
+}

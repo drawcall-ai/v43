@@ -1,0 +1,57 @@
+{
+  "name": "@v43/plugin-three",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "V43 Three.js plugin for Vite — auto-discovers *.system.ts files, generates HTML/entry, handles HMR",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean && cp src/entry-runtime.ts src/virtual.d.ts dist/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@v43/core": "workspace:*",
+"fast-glob": "^3.3.0"
+  },
+  "peerDependencies": {
+    "vite": "^5.0.0 || ^6.0.0"
+  },
+  "author": "Bela Bohlender",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbohlender/v43.git",
+    "directory": "packages/plugin-three"
+  },
+  "homepage": "https://github.com/bbohlender/v43#readme",
+  "bugs": {
+    "url": "https://github.com/bbohlender/v43/issues"
+  },
+  "keywords": [
+    "v43",
+    "vite",
+    "three",
+    "threejs",
+    "vite-plugin",
+    "three"
+  ]
+}

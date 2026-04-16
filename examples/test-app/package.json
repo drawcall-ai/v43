@@ -1,0 +1,14 @@
+{
+  "name": "@v43/test-app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@v43/core": "workspace:*",
+    "@v43/plugin": "workspace:*",
+    "@v43/cli-handler": "workspace:*"
+  }
+}

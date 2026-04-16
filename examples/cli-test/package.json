@@ -1,0 +1,16 @@
+{
+  "name": "@v43/cli-test",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "v43-test": "./src/index.ts"
+  },
+  "dependencies": {
+    "@v43/cli-client": "workspace:*",
+    "commander": "^13.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0"
+  }
+}
