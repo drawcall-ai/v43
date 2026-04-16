@@ -50,6 +50,9 @@ jobs:
       - name: Run tests
         run: pnpm test
 
+      - name: Install json CLI
+        run: npm install -g json
+
       - name: Set Version
         run: pnpm -F './packages/**/*' exec json -f "package.json" -I -e 'this.version = "${{ steps.gitversion.outputs.fullSemVer }}"'
 
